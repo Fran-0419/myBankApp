@@ -1,10 +1,15 @@
 package com.nunezo.bank.models.data;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 //@Entity
 //@Table(name = "users")
 public class User {
 
 
+    @Id
+    @GeneratedValue
     private int id;
 
 
