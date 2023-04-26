@@ -1,7 +1,9 @@
-package com.nunezo.bank.models.data;
+package com.nunezo.bank.models;
 
+import com.nunezo.bank.models.data.AccountRepository;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.springframework.beans.factory.annotation.Autowired;
 
 //@Entity
 //@Table(name = "users")
@@ -21,7 +23,10 @@ public class User {
 
     private String email;
 
-    public User(String name, String lastName, String email) {
+    private Account account;
+
+
+    public User(String name, String lastName, String email ,Account account) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
