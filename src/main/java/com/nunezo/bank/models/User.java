@@ -1,12 +1,10 @@
 package com.nunezo.bank.models;
 
-import com.nunezo.bank.models.data.AccountRepository;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
-//@Entity
-//@Table(name = "users")
+@Entity
 public class User {
 
 
@@ -15,22 +13,31 @@ public class User {
     private int id;
 
 
+    @NotNull(message = "Name is required")
     private String name;
 
 
+    @NotNull(message = "Last name is required")
     private String lastName;
 
 
+    @NotNull(message = "Email is required")
     private String email;
 
+
+    @NotNull
+    @Size(min = 10, max =40)
+    private String password;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
 
-    public User(String name, String lastName, String email ,Account account) {
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-    }
+//    public User(String name, String lastName, String email ,Account account) {
+//        this.name = name;
+//        this.lastName = lastName;
+//        this.email = email;
+//    }
 
     public int getId() {
         return id;
@@ -58,5 +65,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

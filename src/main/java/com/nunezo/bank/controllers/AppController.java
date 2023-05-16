@@ -10,4 +10,10 @@ public class AppController {
     public String indexDisplay(){
         return "index";
     }
+
+//    @GetMapping("/register")
+//    public String register(){
+//
+//        return "generateAccount";
+//    }
 }

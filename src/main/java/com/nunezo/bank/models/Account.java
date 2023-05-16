@@ -1,11 +1,13 @@
 package com.nunezo.bank.models;
 
-import com.nunezo.bank.models.data.AccountRepository;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+@Entity
 public class Account {
 
     @Id
@@ -16,9 +18,18 @@ public class Account {
     @Size(max=10)
     private int accountNum;
 
+    private double balance;
+
+    @OneToOne(mappedBy = "account")
+    private User user;
+
     public Account(int accountNum) {
         this.accountNum = accountNum;
     }
+
+    public Account() {
+    }
+
 
     public int getId() {
         return id;
@@ -32,11 +43,19 @@ public class Account {
         this.accountNum = accountNum;
     }
 
+    public double isBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
     public void deposit(double amount){
-        this.accountNum += amount;
+        this.balance += amount;
     }
 
     public void withdraw(double amount){
-        this.accountNum -= amount;
+        this.balance  -= amount;
     }
 }

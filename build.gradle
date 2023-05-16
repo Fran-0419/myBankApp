@@ -18,15 +18,28 @@ repositories {
 	mavenCentral()
 }
 
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'mysql:mysql-connector-java'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//runtimeOnly 'com.microsoft.sqlserver:mssql-jpa'
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	runtimeOnly 'mysql:mysql-connector-java:'
+//	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	compileOnly 'org.projectlombok:lombok'
+//	annotationProcessor 'org.projectlombok:lombok'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'  ojo
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+	//implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.17'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	compileOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 tasks.named('test') {
